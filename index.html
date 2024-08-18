@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIM Production</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./js/auth.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="header">
+            <div class="head">
+                AIM
+                <div class="prod">Production</div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="admin-panel" style="display:none;">
+            <h1>Admin Panel</h1>
+            <div class="pre_navig">
+                <button id="Active" class="navig">Active</button>
+                <button id="Add" class="navig">Add</button>
+                <button id="User" class="navig">User</button>
+            </div>
+            <div class="add-card" style="display: none;">
+                <div class="add_cards">
+                    <form action="/submit-form" method="post">
+                        <div class="upload-btn-wrapper">
+                            <img id="uploadedImage" alt="Your Image">
+                            <div id="uploadText">tap to upload image</div>
+                            <input type="file" accept="image/*" onchange="displayImage(this)">
+                        </div>
+                        <p class="part-number">
+                            <label for="order_number">Part number</label>
+                            <input type="text" id="order_number">
+                        </p>
+                        <p class="name-number">
+                            <label for="name_number">Name</label>
+                            <input type="text" id="name_number">
+                        </p>
+                        <p class="desc-part">
+                            <label for="desc_part">Description</label>
+                            <textarea type="text" id="desc_part"></textarea>
+                        </p>
+                        <button id="create-card-btn">Create card</button>
+                    </form>
+                </div>
+            </div>
+            <div class="active-cards">
+            </div>
+            <!-- Админ интерфейс -->
+        </div>
+        <div id="engineer-panel" style="display:block;">
+            <h1>Engineer Panel</h1>
+            <div class="pre_navig">
+                <button id="Active" class="navig">Active</button>
+                <button id="Add" class="navig">Add</button>
+            </div>
+            <div class="add-card" style="display: none;">
+                <div class="add_cards">
+                    <form action="/submit-form" method="post">
+                        <div class="upload-btn-wrapper">
+                            <img id="uploadedImage" alt="Your Image">
+                            <div id="uploadText">tap to upload image</div>
+                            <input type="file" accept="image/*" onchange="displayImage(this)">
+                        </div>
+                        <p class="part-number">
+                            <label for="order_number">Part number</label>
+                            <input type="text" id="order_number">
+                        </p>
+                        <p class="name-number">
+                            <label for="name_number">Name</label>
+                            <input type="text" id="name_number">
+                        </p>
+                        <p class="desc-part">
+                            <label for="desc_part">Description</label>
+                            <textarea type="text" id="desc_part"></textarea>
+                        </p>
+                        <button id="create-card-btn">Create card</button>
+                    </form>
+                </div>
+            </div>
+            <div class="active-cards">
+            </div>
+            <!-- Интерфейс инженера -->
+        </div>
+        <div id="user-panel" style="display:none;">
+            <h1>User Panel</h1>
+            <!-- Интерфейс пользователя -->
+        </div>
+    </main>
+    <footer></footer>
+    <script>
+        fetch('/auth')
+            .then(response => response.json())
+            .then(data => {
+                if (data.role === 'admin') {
+                    document.getElementById('admin-panel').style.display = 'block';
+                } else if (data.role === 'engineer') {
+                    document.getElementById('engineer-panel').style.display = 'block';
+                } else {
+                    document.getElementById('user-panel').style.display = 'block';
+                }
+            });
+        function displayImage(input) {
+            const file = input.files[0];
+            const img = document.getElementById('uploadedImage');
+            const uploadText = document.getElementById('uploadText');
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                    uploadText.style.display = 'none';
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+    <script src="./js/logic.js"></script>
+    <script src="./js/method.js"></script>
+</body>
+
+</html>

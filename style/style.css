@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.head {
+    background: linear-gradient(rgb(133, 133, 206), rgb(169, 169, 169));
+    height: 100px;
+    text-align: center;
+    padding-top: 15px;
+    color: rgb(27, 0, 180);
+    font-size: 40px;
+    font-weight: 900;
+    font-family: "Graduate", serif;
+}
+
+.prod {
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    font-weight: 400;
+}
+
+body {
+    background-color: rgba(144, 144, 145, 0.36);
+}
+
+
+h1 {
+    text-align: center;
+    margin-top: 15px;
+    font-family: "Graduate", serif;
+}
+
+.pre_navig {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navig {
+    width: 30%;
+    height: 40px;
+    font-weight: 800;
+    margin-top: 20px;
+    border-radius: 20px;
+    border-color: rgb(147, 197, 197);
+    height: 4.5vh;
+    font-size: 2vh;
+    color: rgb(11, 14, 15);
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgba(54, 54, 54, 0.273);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+}
+
+.upload-btn-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    display: none;
+    border-radius: 5px;
+}
+
+.upload-btn-wrapper input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.add_cards {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+#uploadText {
+    font-size: 25px;
+    font-family: "Graduate", serif;
+}
+
+#desc_part {
+    width: 70vw;
+    height: 10vh;
+    box-sizing: border-box;
+    text-align: left;
+    padding-bottom: 65px;
+    resize: vertical;
+}
+
+
+.part-number,
+.name-number,
+.desc-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.card {
+    background-color: rgba(144, 144, 145, 0.675);
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 25px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.active-cards {
+    display: flex;
+    justify-content: center;
+}
+
+.img_card {
+    width: 30%;
+    height: 15vh;
+}
+
+#create-card-btn {
+    width: 40%;
+    height: 5vh;
+    border-radius: 20px;
+    background-color: rgba(144, 144, 145, 0.675);
+    display: block;
+    margin: 10px auto;
+}
+
+.add-card {
+    flex-direction: column;
+}
+
+.active-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    object-fit: cover;
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+    margin: 5px 0;
+    /* Отступы между абзацами */
+    word-wrap: break-word;
+    /* Перенос слов, если они слишком длинные */
+    overflow-wrap: break-word;
+    /* Перенос длинных слов */
+}
+
+.desc-part span {
+    display: inline-block;
+    max-width: 100%;
+    flex: 1;
+    word-break: break-word;
+}
+
+
+.card span {
+    display: inline-block;
+    word-break: break-word;
+    /* Перенос строк в длинных словах */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay img {
+    max-width: 80%;
+    max-height: 80%;
+    margin: 20px;
+}
+
+.download-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background-color: #3e8e41;
+}
+
+.confirm-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 75px;
+}
